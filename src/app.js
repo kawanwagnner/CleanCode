@@ -1,17 +1,20 @@
 require("dotenv").config();
 const express = require("express");
 const { sequelize } = require("./model");
+const router = require("./routes/userRouter");
 
 const app = express();
 
 app.use(express.json());
+
+app.use("/api", router);
 
 sequelize
   .authenticate()
   .then(() => {
     console.log("Conexão com o banco de dados realizado com sucesso!!");
   })
-  .catch(() => {
+  .catch((error) => {
     console.error("Erro ao se conectar ao banco: ", error);
   });
 

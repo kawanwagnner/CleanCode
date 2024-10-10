@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../model/user");
 
 //app.js -> router.js -> UserRouter.js -> userController
 //-> userService.js -> model -> Database
